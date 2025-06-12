@@ -1,47 +1,152 @@
-/* Container principal */
+/* src/pages/portfolio.css */
 .portfolio-container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #121212;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
 }
 
-/* Título */
-.portfolio-title {
+.profile-section {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  background: rgba(35, 35, 43, 0.92);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px #2563eb30;
+  padding: 2rem 2.5rem;
+  border: 1.5px solid #2563eb30;
+  backdrop-filter: blur(4px);
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+  box-shadow: 0 2px 12px #2563eb40;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: #60a5fa;
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.3rem;
   letter-spacing: -1px;
-  text-align: center;
-  text-shadow: 0 2px 8px #00000030;
 }
 
-/* Loading e vazio */
-.portfolio-loading,
-.portfolio-empty {
-  color: #a5b4fc;
+.profile-bio {
+  color: #d4d4d8;
+  margin-bottom: 0.5rem;
   font-size: 1.1rem;
-  margin-top: 2rem;
-  text-align: center;
 }
 
-/* Grid de cards */
-.portfolio-grid {
+.profile-followers {
+  color: #a5b4fc;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.btn-profile {
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+  padding: 0.5rem 1.3rem;
+  border-radius: 0.7rem;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #2563eb40;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-profile:hover {
+  background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
+  transform: scale(1.04);
+}
+
+.search-filter {
+  margin: 1.5rem 0 2rem 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  border: 1.5px solid #27272a;
+  background: rgba(24, 24, 27, 0.85);
+  color: #f4f4f5;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #00000010;
+}
+.search-input:focus {
+  border-color: #2563eb;
+  outline: none;
+  background: #23232b;
+  box-shadow: 0 0 0 2px #2563eb40;
+}
+
+.language-stats {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  color: #60a5fa;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+.lang-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.lang-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.lang-bar .bar {
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+  height: 18px;
+  border-radius: 6px;
+  min-width: 40px;
+  text-align: center;
+  padding: 0 0.7rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #2563eb40;
+}
+
+.repos-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   width: 100%;
+  margin-top: 1rem;
 }
 
-/* Card de repositório */
-.portfolio-card {
-  background: rgba(35, 35, 43, 0.92);
+.repo-card {
+  background: rgba(24, 24, 27, 0.97);
   border-radius: 1rem;
-  box-shadow: 0 4px 24px #00000020;
+  box-shadow: 0 8px 32px #2563eb30;
   padding: 1.5rem 1.2rem;
   display: flex;
   flex-direction: column;
@@ -53,23 +158,21 @@
   position: relative;
   overflow: hidden;
 }
-.portfolio-card:hover {
-  box-shadow: 0 8px 32px #2563eb50;
+.repo-card:hover {
+  box-shadow: 0 12px 40px #2563eb60;
   transform: translateY(-6px) scale(1.03);
   border-color: #2563eb60;
 }
 
-/* Título do repositório */
 .repo-title {
   color: #60a5fa;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
   word-break: break-all;
 }
 
-/* Descrição */
 .repo-desc {
   color: #d4d4d8;
   margin-bottom: 0.75rem;
@@ -78,18 +181,14 @@
   min-height: 40px;
 }
 
-/* Linguagem */
-.repo-lang {
-  color: #a5b4fc;
+.repo-meta {
+  display: flex;
+  gap: 1rem;
   font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-.repo-lang span {
-  color: #fff;
-  font-weight: 500;
+  margin: 0.5rem 0;
+  color: #a5b4fc;
 }
 
-/* Link */
 .repo-link {
   color: #fff;
   background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
@@ -113,15 +212,71 @@
   .portfolio-container {
     padding: 1rem 0;
   }
-  .portfolio-grid {
+  .repos-list {
+    gap: 1rem;
+  }
+  .profile-section {
+    padding: 1.2rem 0.7rem;
     gap: 1rem;
   }
 }
 @media (max-width: 600px) {
-  .portfolio-title {
-    font-size: 1.3rem;
+  .section-title {
+    font-size: 1.1rem;
   }
-  .portfolio-card {
+  .repo-card {
     padding: 1rem 0.7rem;
+  }
+  .profile-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+}
+
+
+.commit-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.commit-item {
+  background: rgba(32, 32, 39, 0.85);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px #2563eb20;
+  border-left: 4px solid #2563eb;
+  color: #e0e0e0;
+}
+
+.commit-item p {
+  margin: 0 0 0.4rem 0;
+  font-size: 1rem;
+}
+
+.commit-item small {
+  font-size: 0.85rem;
+  color: #a5b4fc;
+}
+
+
+.chart-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+
+.pinned-section {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .chart-section {
+    padding: 0 1rem;
   }
 }

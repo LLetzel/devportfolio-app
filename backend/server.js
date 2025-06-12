@@ -5,7 +5,7 @@ db = require('./config/db');
 const app = express();
 const authRoutes = require('./routes/authRoutes');
 const projectRoutes = require('./routes/projectRoutes');
-
+const userRoutes = require('./routes/userRoutes');
 
 
 app.use(cors());
@@ -14,7 +14,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projetos', projectRoutes);
-
+app.use('/api/user', userRoutes);
 
 const PORT = process.env.PORT;
 if (!PORT) {
