@@ -6,7 +6,7 @@ const db = require('../config/db');
 exports.register = (req, res) => {
     const { username, email, password } = req.body;
     const hashedPassword = bcrypt.hashSync(password, 10);
-    const query = 'INSERT INTO usuarios (username, email, password) VALUES (?, ?, ?)';
+    const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
     db.query(query, [username, email, hashedPassword], (err, results) =>
         {
             // Verifica se o usuário já existe
@@ -25,7 +25,7 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
     const { email, password } = req.body;
-    const query = 'SELECT * FROM usuarios WHERE email = ?';
+    const query = 'SELECT * FROM users WHERE email = ?';
     db.query(query, [email], (err, results) => {
         if (err) {
             console.error(err);
