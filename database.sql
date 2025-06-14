@@ -11,13 +11,13 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE projects (
+CREATE TABLE projetos (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  title VARCHAR(100) NOT NULL,
+  usuario_id INT NOT NULL,
+  titulo VARCHAR(100) NOT NULL,
   description TEXT,
-  image VARCHAR(255),
+  imagem VARCHAR(255),
   link VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  FOREIGN KEY (usuario_id) REFERENCES users(id) ON DELETE CASCADE
 );

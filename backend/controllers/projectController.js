@@ -4,7 +4,7 @@ const db = require('../config/db');
 exports.createProject = (req, res) => {
     const { usuario_id, titulo, description, link } = req.body;
     const imagem = req.file ? `/uploads/${req.file.filename}` : null; // Caminho relativo
-    const query = 'INSERT INTO projects (usuario_id, titulo, description, link, imagem) VALUES (?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO projetos (usuario_id, titulo, description, link, imagem) VALUES (?, ?, ?, ?, ?)';
     db.query(query, [usuario_id, titulo, description, link, imagem], (err, results) => {
         if (err) {
             console.error(err);
@@ -17,7 +17,7 @@ exports.createProject = (req, res) => {
 
 exports.getMyProjects = (req, res) => {
     const usuario_id = req.user.id; // Obtém o ID do usuário autenticado
-    const query = 'SELECT * FROM projects WHERE usuario_id = ?';
+    const query = 'SELECT * FROM projetos WHERE usuario_id = ?';
     db.query(query, [usuario_id], (err, results) => {
         if (err) {
             console.error(err);
@@ -29,7 +29,7 @@ exports.getMyProjects = (req, res) => {
 
 exports.getProjectById = (req, res) => {
     const projectId = req.params.id;
-    const query = 'SELECT * FROM projects WHERE id = ?';
+    const query = 'SELECT * FROM projetos WHERE id = ?';
     db.query(query, [projectId], (err, results) => {
         if (err) {
             console.error(err);
@@ -46,7 +46,7 @@ exports.updateProject = (req, res) => {
     const projectId = req.params.id;
     const { titulo, description, link } = req.body;
     const imagem = req.file ? `/uploads/${req.file.filename}` : null; // Caminho relativo
-    const query = 'UPDATE projects SET titulo = ?, description = ?, link = ?, imagem = ? WHERE id = ?';
+    const query = 'UPDATE projetos SET titulo = ?, description = ?, link = ?, imagem = ? WHERE id = ?';
     db.query(query, [titulo, description, link, imagem, projectId], (err, results) => {
         if (err) {
             console.error(err);
@@ -61,7 +61,7 @@ exports.updateProject = (req, res) => {
 
 exports.deleteProject = (req, res) => {
     const projectId = req.params.id;
-    const query = 'DELETE FROM projects WHERE id = ?';
+    const query = 'DELETE FROM projetos WHERE id = ?';
     db.query(query, [projectId], (err, results) =>      
     {
         if (err) {
@@ -77,7 +77,7 @@ exports.deleteProject = (req, res) => {
 }
 
 exports.getAllProjects = (req, res) => {
-    const query = 'SELECT * FROM projects';
+    const query = 'SELECT * FROM projetos';
     db.query(query, (err, results) => {
         if (err) {
             console.error(err);
