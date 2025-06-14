@@ -2,7 +2,7 @@
   "name": "devportfolio",
   "version": "1.0.0",
   "scripts": {
-    "start": "node backend/index.js"
+    "start": "node backend/server.js"
   },
   "engines": {
     "node": ">=18"
