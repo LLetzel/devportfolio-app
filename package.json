@@ -1,0 +1,6 @@
+{
+  "name": "devportfolio-app",
+  "scripts": {
+    "start": "node backend/server.js"
+  }
+}

@@ -7,6 +7,14 @@ const authRoutes = require('./routes/authRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const userRoutes = require('./routes/userRoutes');
 
+// Serve os arquivos estáticos do frontend (depois do build)
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Rota fallback para SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
 
 app.use(cors());
 app.use(express.json());
