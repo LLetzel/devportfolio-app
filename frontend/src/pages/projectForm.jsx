@@ -25,9 +25,9 @@ const ProjectForm = ({ project, refresh, close }) => {
     if (image) form.append('image', image);
 
     if (project) {
-      await axios.put(`http://localhost:3000/api/projects/${project.id}`, form);
+      await axios.put(`https://devportfolio-backend-production.up.railway.app/api/projects/${project.id}`, form);
     } else {
-      await axios.post('http://localhost:3000/api/projects', form);
+      await axios.post('https://devportfolio-backend-production.up.railway.app/api/projects', form);
     }
 
     refresh();

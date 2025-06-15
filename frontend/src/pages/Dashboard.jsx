@@ -17,7 +17,7 @@ const Dashboard = () => {
   // Busca todos os projetos e filtra os do usuário
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/projetos');
+      const res = await axios.get('https://devportfolio-backend-production.up.railway.app/api/projetos');
       setCommunityProjects(res.data);
       setUserProjects(res.data.filter(p => p.usuario_id === user?.id));
     } catch (err) {
@@ -43,9 +43,9 @@ const Dashboard = () => {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:3000/api/projetos/${editId}`, data);
+        await axios.put(`https://devportfolio-backend-production.up.railway.app/api/projetos/${editId}`, data);
       } else {
-        await axios.post('http://localhost:3000/api/projetos', data);
+        await axios.post('https://devportfolio-backend-production.up.railway.app/api/projetos', data);
       }
       setForm({ titulo: '', description: '', link: '', imagem: null });
       setEditId(null);
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      await axios.delete(`http://localhost:3000/api/projetos/${id}`);
+      await axios.delete(`https://devportfolio-backend-production.up.railway.app/api/projetos/${id}`);
       fetchProjects();
     }
   };

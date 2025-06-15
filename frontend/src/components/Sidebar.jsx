@@ -17,7 +17,7 @@ const Sidebar = () => {
     const fetchAvatar = async () => {
       if (!token) return;
       try {
-        const res = await axios.get('http://localhost:3000/api/user/me', {
+        const res = await axios.get('https://devportfolio-backend-production.up.railway.app/api/user/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAvatar(res.data.avatar ? `http://localhost:3000${res.data.avatar}` : 'src/assets/perfil-padrao.jpg');

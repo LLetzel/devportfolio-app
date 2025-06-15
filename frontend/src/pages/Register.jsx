@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/auth/register', { username, email, password });
+      await axios.post('https://devportfolio-backend-production.up.railway.app/api/auth/register', { username, email, password });
       navigate('/login');
     } catch (err) {
       alert('Erro ao registrar');

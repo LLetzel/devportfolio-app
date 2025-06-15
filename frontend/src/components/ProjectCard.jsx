@@ -4,7 +4,7 @@ const ProjectCard = ({ project }) => {
     <div className="bg-white p-4 rounded shadow">
       {project.image && (
         <img
-          src={`http://localhost:3000/uploads/${project.image}`}
+          src={`https://devportfolio-backend-production.up.railway.app/uploads/${project.image}`}
           alt={project.title}
           className="h-40 w-full object-cover rounded mb-2"
         />

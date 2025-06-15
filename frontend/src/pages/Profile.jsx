@@ -16,7 +16,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/user/me', {
+        const res = await axios.get('https://devportfolio-backend-production.up.railway.app/api/user/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProfile(res.data);
@@ -42,7 +42,7 @@ const Profile = () => {
     const formData = new FormData();
     formData.append('avatar', image);
     try {
-      const res = await axios.put('http://localhost:3000/api/user/me/avatar', formData, {
+      const res = await axios.put('https://devportfolio-backend-production.up.railway.app/api/user/me/avatar', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccess('Avatar atualizado com sucesso!');
@@ -59,7 +59,7 @@ const Profile = () => {
     setSuccess('');
     setError('');
     try {
-      await axios.delete('http://localhost:3000/api/user/me/avatar', {
+      await axios.delete('https://devportfolio-backend-production.up.railway.app/api/user/me/avatar', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProfile({ ...profile, avatar: null });
